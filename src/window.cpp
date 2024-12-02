@@ -439,14 +439,14 @@ std::vector<Coord> Window::getLegalMoves(Piece p){
         }
 
         //En Passant
-        if(p.X-1 >= 0 && board[p.X-1][p.Y].X == lastEnd.X && board[p.X-1][p.Y].Y == lastEnd.Y){
+        if(p.X-1 >= 0 && board[p.X-1][p.Y].X == lastEnd.X && board[p.X-1][p.Y].Y == 3 && lastStart.Y == 1){
             if(pieces[board[p.X-1][p.Y].pieceID].type == 'p' && pieces[board[p.X-1][p.Y].pieceID].color == 1){
                 temp.X = p.X-1;
                 temp.Y = p.Y-1;
                 legal.push_back(temp);
             }
         }
-        else if(p.X+1 <= 7 && board[p.X+1][p.Y].X == lastEnd.X && board[p.X+1][p.Y].Y == lastEnd.Y){
+        else if(p.X+1 <= 7 && board[p.X+1][p.Y].X == lastEnd.X && board[p.X+1][p.Y].Y == 3 && lastStart.Y == 1){
             if(pieces[board[p.X+1][p.Y].pieceID].type == 'p' && pieces[board[p.X+1][p.Y].pieceID].color == 1){
                 temp.X = p.X+1;
                 temp.Y = p.Y-1;
@@ -479,14 +479,14 @@ std::vector<Coord> Window::getLegalMoves(Piece p){
         }
 
         //En Passant
-        if(p.X-1 >= 0 && board[p.X-1][p.Y].X == lastEnd.X && board[p.X-1][p.Y].Y == lastEnd.Y){
+        if(p.X-1 >= 0 && board[p.X-1][p.Y].X == lastEnd.X && board[p.X-1][p.Y].Y == 4 && lastStart.Y == 6){
             if(pieces[board[p.X-1][p.Y].pieceID].type == 'p' && pieces[board[p.X-1][p.Y].pieceID].color == 0){
                 temp.X = p.X-1;
                 temp.Y = p.Y+1;
                 legal.push_back(temp);
             }
         }
-        else if(p.X+1 <= 7 && board[p.X+1][p.Y].X == lastEnd.X && board[p.X+1][p.Y].Y == lastEnd.Y){
+        else if(p.X+1 <= 7 && board[p.X+1][p.Y].X == lastEnd.X && board[p.X+1][p.Y].Y == 4 && lastStart.Y == 6){
             if(pieces[board[p.X+1][p.Y].pieceID].type == 'p' && pieces[board[p.X+1][p.Y].pieceID].color == 0){
                 temp.X = p.X+1;
                 temp.Y = p.Y+1;
